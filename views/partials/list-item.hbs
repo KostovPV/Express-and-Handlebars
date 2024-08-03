@@ -1,0 +1,26 @@
+<li class="place-item">
+  <div class="card" style="width: 18rem;">
+    <img src="{{img}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{name}}</h5>
+      {{!-- <div class="rating-container">
+        {{#each (stars rating)}}
+        <i class="fa-solid {{this}}"></i>
+        {{/each}}
+      </div> --}}
+      <div class="rating-container">
+        {{#each (stars rating)}}
+        <i class="{{this}}"></i>
+        {{/each}}
+      </div>
+
+      <div class="card-text details" id="details-{{id}}" style="display: none;">
+        <p class="card-text">{{address}}</p>
+        <p class="card-text">{{details}}</p>
+      </div>
+      <div>
+        <button class="btn btn-primary toggle-details" data-id="{{id}}">Show More Info</button>
+      </div>
+
+    </div>
+</li>

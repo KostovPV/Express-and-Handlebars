@@ -1,0 +1,54 @@
+.page-title,
+.home-title {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.place-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+    align-content: center;
+    align-items: flex-start;
+}
+
+.place-item {
+    list-style: none;
+    margin: 15px;
+    text-align: center;
+}
+
+.place-item img {
+    height: 250px;
+}
+
+.card-body {
+    padding: 10px;
+}
+
+.card-title {
+    min-height: 50px;
+    font-size: 26px;
+}
+
+.card button {
+    margin: 10px;
+}
+
+.home-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('/img/wallpaper.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+    color:white;
+}
+
+.list-page{
+    background-color: rgb(97, 90, 78);
+}
