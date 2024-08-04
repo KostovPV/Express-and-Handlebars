@@ -59,8 +59,7 @@ app.get('/list', (req, res) => {
 
 
 
-const port = 5000;
+const port = process.env.PORT || 5000; // Use the port provided by Heroku or fallback to 5000 for local testing
 app.listen(port, () => {
-    console.log(('Server listening on port http://localhost:5000...'));
+    console.log(`Server listening on port ${port}...`);
 });
-
