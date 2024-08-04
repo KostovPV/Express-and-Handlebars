@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{place.name}} Details</title>
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>{{place.name}}</h1>
+    <img src="{{place.img}}" alt="{{place.name}}" style="width:300px;height:300px;">
+    <p><strong>Address:</strong> {{place.address}}</p>
+    <p><strong>Rating:</strong>
+      <div class="rating-container">
+        {{#each (stars place.rating)}}
+        <i class="{{this}}"></i>
+        {{/each}}
+      </div>
+    </p>
+    <p><strong>Details:</strong> {{place.details}}</p>
+    <a href="/list">Back to list</a>
+  </div>
+</body>
+</html>

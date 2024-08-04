@@ -1,4 +1,3 @@
-
 const express = require('express');
 const handlebars = require('express-handlebars');
 const path = require('path');  
@@ -18,16 +17,10 @@ app.engine('hbs', handlebars.engine({
             );
         }
     }
-    
 }));
 
-
-
-// app.use(express.static('public'));
 app.use(express.static(path.join(__dirname, 'public')));
-
 app.set('view engine', 'hbs');
-
 app.use(loggerMidddleware);
 
 const places = [
@@ -38,28 +31,30 @@ const places = [
     {name: 'The Cafe Center', id: 5, address: 'Burgas Center, ul. "Mihail Lermontov" 10, 8000 Burgas', rating: 4, img: '/img/dabov.jpg', details: 'Central location with a great selection of pastries.'},
 ];
 
-
-
-
 app.get('/', (req, res) => {
     res.render('home', {
         places,
     });
-
-})
-
+});
 
 app.get('/list', (req, res) => {
-    console.log('Hello from Express');
-    // res.send('<h1>Hello from res. Express</h1>');
     res.render('list', {
         places,
     });
-})
+});
 
+app.get('/list/:id', (req, res) => {
+    const place = places.find(p => p.id == req.params.id);
+    if (place) {
+        res.render('item-details', {
+            place,
+        });
+    } else {
+        res.status(404).send('Item not found');
+    }
+});
 
-
-const port = process.env.PORT || 5000; // Use the port provided by Heroku or fallback to 5000 for local testing
+const port = process.env.PORT || 5000;
 app.listen(port, () => {
     console.log(`Server listening on port ${port}...`);
 });
