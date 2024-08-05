@@ -1,4 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+  const currentPath = window.location.pathname;
+  
+  // Loop through all nav links
+  document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+    // Check if the href attribute matches the current URL path
+    if (link.getAttribute('href') === currentPath) {
+      // Add 'active' class to the matched link
+      link.classList.add('active');
+      // Disable hover effect by adding a class or directly setting styles
+      link.classList.add('no-hover');
+    }
+  });
+  
   document.querySelectorAll('.toggle-details').forEach(button => {
     button.addEventListener('click', () => {
       const id = button.getAttribute('data-id');
