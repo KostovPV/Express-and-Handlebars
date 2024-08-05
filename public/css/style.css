@@ -2,6 +2,26 @@
     background-color: #b1d0d3 !important;
 }
 
+.navbar-brand {
+    font-size: 1.25rem;
+}
+
+.navbar-nav .nav-link {
+    font-size: 1.25rem;
+    transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.navbar-nav .nav-link.active {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
 .page-title,
 .home-title {
     text-align: center;
@@ -30,9 +50,7 @@
     align-content: center;
     align-items: flex-start;
     height: auto;
-    /* Changed from 100vh to auto for better responsiveness */
     overflow: hidden;
-    /* Prevent overflow of items */
 }
 
 .place-item {
@@ -41,18 +59,14 @@
     flex-direction: column;
     flex-wrap: wrap;
     margin: 15px;
-    /* Adjusted margin to ensure spacing is maintained */
     text-align: center;
-
     box-sizing: border-box;
-    /* Include padding and border in the element's total width and height */
 }
 
 .place-item img {
     height: 250px;
     width: 100%;
     object-fit: cover;
-    /* Ensure images maintain aspect ratio */
 }
 
 .card-body {
@@ -84,35 +98,27 @@
 .list-page {
     background-color: #4e545b;
     padding-top: 60px;
-    /* Add padding to avoid navbar overlap */
     min-height: 1000px;
 }
 
 /* Media queries for responsiveness */
-/* @media (max-width: 1200px) {
+@media (max-width: 1200px) {
     .place-item {
-        
-       
     }
 }
 
 @media (max-width: 960px) and (min-width: 900px) {
     .place-item {
-        
-   
     }
 }
 
 @media (max-width: 900px) {
     .place-item {
-       
-     
     }
 }
 
 @media (max-width: 600px) {
     .place-item {
-       
         max-width: 100%;
     }
-} */
+}
