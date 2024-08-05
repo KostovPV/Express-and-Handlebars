@@ -1,6 +1,8 @@
 # Coffee Land
 
 Coffee Land is a web application built using Express.js and Handlebars.js. It provides a platform to browse coffee places in your town, view details about each place, and add new coffee places to the list.
+The project is deployed at:
+https://secure-wildwood-01484-63b0844f3c37.herokuapp.com/
 
 ## Features
 
