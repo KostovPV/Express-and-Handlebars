@@ -8,6 +8,12 @@
   <div class="container">
     <h1>{{place.name}}</h1>
     <img src="{{place.img}}" alt="{{place.name}}" style="width:300px;height:300px;">
+    <div class="galery">
+      {{#each place.images}}
+        <img src="{{this}}" alt="Gallery image" style="width:100px;height:100px;margin:5px;">
+      {{/each}}
+    </div>
+    
     <p><strong>Address:</strong> {{place.address}}</p>
     <p><strong>Rating:</strong>
       <div class="rating-container">
@@ -17,6 +23,13 @@
       </div>
     </p>
     <p><strong>Details:</strong> {{place.details}}</p>
+    <div class="reviews">
+      <h5>Customer reviews</h5>
+      {{#each place.reviews}}
+        <p><strong>{{customer}}</strong></p>
+        <p>Comment: {{comment}}</p>
+      {{/each}}
+    </div>
     <a href="/list">Back to list</a>
   </div>
 </body>

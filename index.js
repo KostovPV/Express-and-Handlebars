@@ -1,6 +1,6 @@
 const express = require('express');
 const handlebars = require('express-handlebars');
-const path = require('path');  
+const path = require('path');
 
 const loggerMidddleware = require('./middlewares/loggerMiddleware')
 const app = express();
@@ -10,9 +10,9 @@ app.engine('hbs', handlebars.engine({
     layoutsDir: path.join(__dirname, 'views/layouts'),
     partialsDir: path.join(__dirname, 'views/partials'),
     helpers: {
-        stars: function(rating) {
+        stars: function (rating) {
             const fullStars = Math.floor(rating);
-            return Array.from({ length: 5 }, (_, index) => 
+            return Array.from({ length: 5 }, (_, index) =>
                 index < fullStars ? 'fa-solid fa-star' : 'fa-regular fa-star'
             );
         }
@@ -23,12 +23,23 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'hbs');
 app.use(loggerMidddleware);
 
-const places = [
-    {name: 'The corner Coffe', id: 1, address: 'Burgas Center, ul. "Slivnitsa" 8, 8000 Burgas', rating: 5, img: '/img/coffee-room.jpg', details: 'A cozy corner coffee shop with great ambiance.'},
-    {name: 'The Butlers coffe', id: 2, address: 'Burgas Center, ul. "Mihail Lermontov" 13, 8000 Burgas', rating: 4, img: '/img/butlers.jpg', details: 'Elegant and stylish coffee with top-notch service.'},
-    {name: 'HashtagSTUDIO - The Culture Club', id: 3, address: 'Burgas Center, ul. "Vazrazhdane" 6, 8001 Burgas', rating: 4, img: '/img/hash-tag.jpg', details: 'A vibrant spot with a cultural touch.'},
-    {name: 'The Coffe Room 1', id: 4, address: 'Burgas Center, ul. "Tsar Simeon I" 37, 8000 Burgas', rating: 3, img: '/img/coffe-room.jpg', details: 'Modern coffee room with a variety of blends.'},
-    {name: 'The Cafe Center', id: 5, address: 'Burgas Center, ul. "Mihail Lermontov" 10, 8000 Burgas', rating: 4, img: '/img/dabov.jpg', details: 'Central location with a great selection of pastries.'},
+const places = [ 
+    {
+        name: 'The Coffe Room',
+        id: 1, address: 'Burgas Center, ul. "Slivnitsa" 8, 8000 Burgas',
+        rating: 5, img: '/img/coffee-room.jpg',
+        details: 'Българска верига кофишопове родена в Бургас.Прясно изпечено кафе приготвено от майстори.Кафе-коктейли, традиционни напитки, уникални десерти, съвременна уютна атмосфера',
+        reviews: [
+            { customer: 'Ogata Ap', comment: 'Правят яко кафе, имат един черен сладкиш прилича на изгорял, но е много вкусен, кенефа е добър става за отпускане .Препоръчвам' },
+            {customer: 'Ana Vasileva', comment: 'Interior is super creative and conducive, the swings define as good choice. In terms of variety this place is a heaven to coffee and tea lovers. Probably one of the best-tasting cappuccinos I’ve tried and they offer sweets too. Staff was kind and friendly.'},
+            {customer: 'Joe Kristiansen', comment: 'Great little coffee shop. The coffee is fantastic, snacks are amazing. I recommend the banana bread. It does a brisk business, staff is friendly and helpful, bathroom is clean. The owner is a cheerful young man, constantly improving the venue. They have recently started their own line of in house made snacks. A nice addition to a great environment.'}
+        ],
+        images: ['/img/galery/1/caffe-corner-01.jpeg', '/img/galery/1/caffe-corner-02.jpeg', '/img/galery/1/caffe-corner-03.jpeg', '/img/galery/1/caffe-corner-04.jpeg', '/img/galery/1/caffe-corner-05.jpeg']
+    },
+    { name: 'The Butlers coffe', id: 2, address: 'Burgas Center, ul. "Mihail Lermontov" 13, 8000 Burgas', rating: 4, img: '/img/butlers.jpg', details: 'Elegant and stylish coffee with top-notch service.', reviews: [], images: [] },
+    { name: 'HashtagSTUDIO - The Culture Club', id: 3, address: 'Burgas Center, ul. "Vazrazhdane" 6, 8001 Burgas', rating: 4, img: '/img/hash-tag.jpg', details: 'A vibrant spot with a cultural touch.', reviews: [], images: [] },
+    { name: 'The Coffe Room 1', id: 4, address: 'Burgas Center, ul. "Tsar Simeon I" 37, 8000 Burgas', rating: 3, img: '/img/coffe-room.jpg', details: 'Modern coffee room with a variety of blends.', reviews: [], images: [] },
+    { name: 'The Cafe Center', id: 5, address: 'Burgas Center, ul. "Mihail Lermontov" 10, 8000 Burgas', rating: 4, img: '/img/dabov.jpg', details: 'Central location with a great selection of pastries.', reviews: [], images: [] },
 ];
 
 app.get('/', (req, res) => {
